@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>burgers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/styles.min.css">
+    <link rel="stylesheet" href="dist/adaptive.min.css">
+    <link rel="stylesheet" href="src/owl.carousel.min.css">
+    <link rel="stylesheet" href="src/owl.theme.default.min.css">
+    <link href="lib/fancy-timer/css/fancy-timer.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="dist/animate.min.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header__container container">
+        <div class="header__burger burger" id="burger">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="40px" height="24px">
+                <path fill-rule="evenodd" fill="#b28f66"
+                      d="M0.000,-0.000 L40.000,-0.000 L40.000,3.000 L0.000,3.000 L0.000,-0.000 Z"/>
+                <path fill-rule="evenodd" fill="#b28f66"
+                      d="M0.000,10.000 L40.000,10.000 L40.000,13.000 L0.000,13.000 L0.000,10.000 Z"/>
+                <path fill-rule="evenodd" fill="#b28f66"
+                      d="M0.000,20.000 L40.000,20.000 L40.000,23.000 L0.000,23.000 L0.000,20.000 Z"/>
+            </svg>
+        </div>
+        <div class="header__logo">
+            <a href="#">
+                <img src="images/logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="header__menu menu" id="menu">
+            <div class="menu__close">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
+                    <g>
+                        <g>
+                            <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+                                c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+                                c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+                                L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+                                c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+                                c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+                                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <ul class="menu__list">
+                <li class="menu__list-item">
+                    <a href="#menuContainer" class="menu__list-item-href">Меню</a>
+                </li>
+                <li class="menu__list-item">
+                    <a href="#achievementContainer" class="menu__list-item-href">Наши преимущества</a>
+                </li>
+                <li class="menu__list-item">
+                    <a href="#aboutContainer" class="menu__list-item-href">О Boomburger</a>
+                </li>
+                <li class="menu__list-item">
+                    <a href="#reviewsContainer" class="menu__list-item-href">Отзывы</a>
+                </li>
+                <li class="menu__list-item">
+                    <a href="#promoContainer" class="menu__list-item-href">Акции</a>
+                </li>
+                <li class="menu__list-address">
+                    <div class="menu__list-add">
+                        <div class="header__address-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="26"
+                                 height="38" viewBox="0 0 26 38">
+                                <image id="placeholder" width="26" height="38"
+                                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAmCAYAAADa8osYAAAEQUlEQVRIia2WaYiVZRTHf3NnHK2ptExN05trYVFKVijlhkla7oHQ5AxISEqi9iGlaHErsEQrUUz0gzXaRrgWSoo24a6RaWWF24xbJAoqpjV25cj/kcPDe+87Qgcu577nPe/zf85+inKrRpFCtwIVwHPAE5HqD8CnwCfAn4WOKUkBeQuY6p6/Aw4AV4B7gd7Aw8B7wIfAxBsFagpUA/cDG4FpwPd5dLsBU4AJwEigF/BHrJTkusZADXAbMAJYkWJ1oF6y2KgjcNC/zCR8sEMgXSKQ54F1wFlguWSdgRb6bx7I6v+e+NAYaCZwHzAY+EmydsCvQBXwFHAC+E3vfgGmu+9rga7yymf+YO+6YqBOFnWXrKUONqqUJVfc908Dh4A+ysCdki8DyoHmwF8x0CRgLtAeOCzZ70CnSJZEuXBx8VLgMrAIeDF2nWXNv+7AZwRSmQKC0tzoBfF/5MbRQcEDWSy+jYBzKsY0qpaLfM19ATQAGnmghuJ7nWLP6DmNNgGtnc7P4nd7oMB9oIui5zSKdevEiz3A3+IdneI2pWp9qS9wyum2Ez9JFKPTqpNA83WbEfUAsgvdpToMNFz8fAy0GLgdKNPzV8Ax8eYFQBooGS7rch58dXjwQLPEFzlZX3EbAUMSQHor22yU9HPyN8SnBEHcVD9XB7bsOS7Zg+pxrYBLwHYF3rp2E1kyANjsLLQ62g08mmQRahtG651sn1J0HLAfeFyW1ujGNzsQXCMe5A+OgeymLwEPAMOidwt1w1IliXX3d4H/nE43dZQP4ombb5TXyFVpEzim0xoxpfGLpHmEdgO79fs3ADJek/nJpJf5gMyij7UDZPPoeLKSmKdeWZ0GNFCzPqdfheRV9QBaKJ7V/MopcXoGhRADK65v1IpWSvECcIsq/FkVbhI9AozSEhNqaaWSyazrYMMxJMNaZUtRwkG1SoziPEAnleKNdcFXgNkq4nPqOGOC6zqp8JJosFw8J+HdOPU4XwoDxM+rg9vedz1GdxSYoj8CXwIvA22c3GbYAu0JmyR7Xe7brLiVBANCjO5MWpEcjZRbjsjCSy5Jhjq9t+X+GeqDdaFJZ5xVtdHhFdpm5qp7m9VngK8V+JaK66nou5kCK9Ne/lCwqKkUtoj3kMI97uNJyqxmarKttCJfLOCFi9r7rnkso2CGF28CWwVSqThklfpV4vvUdGOQcsVzv9uGQnNundEt0YiYpgA30vYT1iZz0RgVdU4xC9RHe/YyZW9WKb3WLSttM/I1WoF7qHsnpfpi7RQHdKl5qhfLuLZaFMvUVMfqcmHCNitR5aI5c6GAz9HNbbF/B3hVslUJI+UjYA2wVE22RUbBpR4gnl7T8Dui9C5P0LGe11//Hysp0FrSyIrSVqrJwNEU3Zus11lT3KXRYAH1EzONrK5s2FmNWdF7Mm/ZQmPTur9ZZEuEmb7E+f3/Irv0WGDDVW9K/Sb5FK/5AAAAAElFTkSuQmCC"/>
+                            </svg>
+                        </div>
+                        <div class="header__address-item"> г. Москва, м. Лубянка <br>
+                            Никольская ул., 24
+                        </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header__address">
+            <div class="header__address-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26"
+                     height="38" viewBox="0 0 26 38">
+                    <image id="placeholder" width="26" height="38"
+                           xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAmCAYAAADa8osYAAAEQUlEQVRIia2WaYiVZRTHf3NnHK2ptExN05trYVFKVijlhkla7oHQ5AxISEqi9iGlaHErsEQrUUz0gzXaRrgWSoo24a6RaWWF24xbJAoqpjV25cj/kcPDe+87Qgcu577nPe/zf85+inKrRpFCtwIVwHPAE5HqD8CnwCfAn4WOKUkBeQuY6p6/Aw4AV4B7gd7Aw8B7wIfAxBsFagpUA/cDG4FpwPd5dLsBU4AJwEigF/BHrJTkusZADXAbMAJYkWJ1oF6y2KgjcNC/zCR8sEMgXSKQ54F1wFlguWSdgRb6bx7I6v+e+NAYaCZwHzAY+EmydsCvQBXwFHAC+E3vfgGmu+9rga7yymf+YO+6YqBOFnWXrKUONqqUJVfc908Dh4A+ysCdki8DyoHmwF8x0CRgLtAeOCzZ70CnSJZEuXBx8VLgMrAIeDF2nWXNv+7AZwRSmQKC0tzoBfF/5MbRQcEDWSy+jYBzKsY0qpaLfM19ATQAGnmghuJ7nWLP6DmNNgGtnc7P4nd7oMB9oIui5zSKdevEiz3A3+IdneI2pWp9qS9wyum2Ez9JFKPTqpNA83WbEfUAsgvdpToMNFz8fAy0GLgdKNPzV8Ax8eYFQBooGS7rch58dXjwQLPEFzlZX3EbAUMSQHor22yU9HPyN8SnBEHcVD9XB7bsOS7Zg+pxrYBLwHYF3rp2E1kyANjsLLQ62g08mmQRahtG651sn1J0HLAfeFyW1ujGNzsQXCMe5A+OgeymLwEPAMOidwt1w1IliXX3d4H/nE43dZQP4ombb5TXyFVpEzim0xoxpfGLpHmEdgO79fs3ADJek/nJpJf5gMyij7UDZPPoeLKSmKdeWZ0GNFCzPqdfheRV9QBaKJ7V/MopcXoGhRADK65v1IpWSvECcIsq/FkVbhI9AozSEhNqaaWSyazrYMMxJMNaZUtRwkG1SoziPEAnleKNdcFXgNkq4nPqOGOC6zqp8JJosFw8J+HdOPU4XwoDxM+rg9vedz1GdxSYoj8CXwIvA22c3GbYAu0JmyR7Xe7brLiVBANCjO5MWpEcjZRbjsjCSy5Jhjq9t+X+GeqDdaFJZ5xVtdHhFdpm5qp7m9VngK8V+JaK66nou5kCK9Ne/lCwqKkUtoj3kMI97uNJyqxmarKttCJfLOCFi9r7rnkso2CGF28CWwVSqThklfpV4vvUdGOQcsVzv9uGQnNundEt0YiYpgA30vYT1iZz0RgVdU4xC9RHe/YyZW9WKb3WLSttM/I1WoF7qHsnpfpi7RQHdKl5qhfLuLZaFMvUVMfqcmHCNitR5aI5c6GAz9HNbbF/B3hVslUJI+UjYA2wVE22RUbBpR4gnl7T8Dui9C5P0LGe11//Hysp0FrSyIrSVqrJwNEU3Zus11lT3KXRYAH1EzONrK5s2FmNWdF7Mm/ZQmPTur9ZZEuEmb7E+f3/Irv0WGDDVW9K/Sb5FK/5AAAAAElFTkSuQmCC"/>
+                </svg>
+            </div>
+            <div class="header__address-item"> г. Москва, м. Лубянка <br>
+                Никольская ул., 24
+            </div>
+            </a>
+        </div>
+    </div>
+</header>
+<section class="main wow animate__pulse">
+    <div class="main__container container">
+        <div class="main__info">
+            <div class="main__info-title">
+                <h1>Сочные бургеры <br>
+                    из свежих продуктов</h1>
+            </div>
+            <div class="main__info-description">
+                Приходите попробовать наши бургеры. <br>
+                Благодаря открытой кухне вы сможете увидеть процесс
+                приготовления вашего любимого фастфуда
+            </div>
+            <div class="main__info-action">
+                <a href="#orderContainer" class="menu__list-item-href">
+                    <button class="button-action btn">Забронировать стол</button>
+                </a>
+            </div>
+            <div class="main__info-achievement">
+                <div class="main__achievement-first">
+                    <div class="main__achievement-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55"
+                             height="63" viewBox="0 0 55 63">
+                            <image id="chef" width="55" height="63"
+                                   xlink:href="data:img/png;base64,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"/>
+                        </svg>
+                    </div>
+                    <div class="main__achievement-text">Огромный выбор бургеров
+                        из любого мяса, птицы и
+                        морепродуктов
+                    </div>
+                </div>
+                <div class="main__achievement-second">
+                    <div class="main__achievement-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72"
+                             height="46" viewBox="0 0 72 46">
+                            <image id="food-tray" width="72" height="46"
+                                   xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAuCAYAAACLQF8AAAAFP0lEQVRogeWaC4wdUxjHf3vbapW0itKsV6wgm1SqItSzlkplQ1HP0jQ0hHoG9Q6KkCgqQXY9WhKPsKJYj2UJu6k2Ui0l4hnEq0u7abVFl+1j5ZP/JKdjZu6de2fnzr39Jzdn5szjfud/z/d9//OdW9PXOpWM4SRgGnA0sAFYADwOdJTDzFzGyLkDeBU4HdgF2A2YArwHzCiHQVkiaCJwi47fACYBpwEL1dcEHJy2UVki6Da1bwInAq8BLwFHAUt07Ya0jcoKQcOAw3R8fcD1u9VutTPIteOfgOsbAu5LBVkhaA3wkY7vCrjuzapPUrTpP2QpBt2n1jLYo8AEBe4WxSHDA2kblTUd1BSRzmcBt6dsDwND+s2Q44t4Xw2wEbi1SGF3CTBPeqhRfc8qw31XxPtKRtAMskFuLvHFzwHnxHzGROF2wGrgOOB59Zt7fQXsBKwDfk1m6IUhaAb1AQ3Agc55oRgA9Eq/RGEb4BDFmNHAWGCvkPvf951/DywDPgXeBj6MaWMspB2DRisIXwSMCrnHZu/fItowGBiimR2EH4Fm4MX+cMO0CDoCuBqY7OtfqPRus+Brudca6R5vVtSIpOHAzkA9cBAwTrPQxdPKdMuSMry/CTK3meMjZpECb5t+/VJQB5wMTBVpHp7SD7Kq1AH0J0HnAw8DQ3XeIbJe76fvOwO4BjhU5yslGfLFw0gYQbMlygYWmL0sEP8O3OSstP2wDHSW+r4EbgZeLsVQHzx3XSy3chX2NKnx3XXeLPlQFIygjRp0XFwH3Ot7ZoRqN14GNOF3aYLEeOgExjvnbbKlU+fbAnMdqdEh6RA72xlBddIauQJn0CCgG2j19Y/SL7qnzqcDT8Y1qECMBC5U/HEDtYnMG2UfcjlvCWOB+3BlyIKRVAyycsUXEns90lGLEyYlDMdqNk/U9bXAxY7QbFQBDmmnsXFmUlKL1Q6Rg+o6aZGDXPoE1bJXSQ6Ykt9H19sUYw1j4iaJJAhqcVLsOP1K5YANfD+1nb4U/67cEc2oOWkRZP55po7PTXnmBGG1ZlKDBKdhf7W2GTBTx1fJNfPCYtBgBa+gRaqX0j8OeJHJgr+0rpqvJUTW8JiCuRXcZsu2RRpvt3ZOImGD/MbJPGG4AnjId22eyFlZxMo9LazT99wDLFW8miwFP1I1pllRtuS0MWeR/w+17scyUlfAkmCMBBlqewPenQXM1IofxaFdgRXA5eqzOlNtlJ1emh8SooMGiTg/WrVv9blW6FnGMNWQhirTdsnW30TYg8CVUTMIiaf1at1PEDm1Igcn6GUZ5mZ7S8h2OXZ6m5QzpLwjCYqD83TvcuCtCiAIxckVvr4nFELMS84Oe7AYgqaofaaIZ7OETcArsicxgvZwYk5ThRNkeETtBCnw/yEuQQ1qvwV+Ss7OssHL4DmnArEF4hJ0qtr2yuZlC3ibAo1BF+MS5LnXkjz3VRIWyNbxQTbHIWiAI82789xbSVguWwOXHXEI2iTRZXinighaqnbHoIthW882W47x9dWr7ZO//pmcjWXFvvry4VqnrXWM6Q0jqF013CDUOPqh2jDfP54wgnZwjk2eb6+Z431yETudlYY+Zw3qjWu9liZ9YQRdq9JAr1ztZz2Yc0iqJrjj2qy69Qc25jCCrMb8GXCAZPidVepSYbhA/e1RuxpWSm3R8QinhFntqHP+BHFkVJp/wclU07cScgyXqf3ByrP5dFCz2tCCUhXCc6/7KWDjsNZRmpbaf6lycuodeWMVyJ6wIO3BUrxtwtk/309Jx8ayw6qotq/fA/AvjqAqAQgs2MMAAAAASUVORK5CYII="/>
+                        </svg>
+                    </div>
+                    <div class="main__achievement-text">Приготовим бургер любого
+                        размера за 15 минут или
+                        забирайте бесплатно
+                    </div>
+                </div>
+            </div>
+            <div class="main__sales">
+                <div class="main__sales-img">
+                    <img src="images/BaconCheddar_noBgd.png" alt="BaconCheddar">
+                </div>
+                <div class="main__sales-dates">
+                    <div>
+                        Акция <br>
+                        28.07-29.07
+                    </div>
+                </div>
+                <div class="main__sales-prices">
+                    <div class="current-price">
+                        550 руб.
+                    </div>
+                    <div class="last-price">
+                        <s>850 руб.</s>
+                    </div>
+                </div>
+                <div class="main__sales-info">
+                    <div class="main__sales-info-title">
+                        Грязный СанчеZ
+                    </div>
+                    <div class="main__sales-info-description">
+                        котлета из мраморной говядины, бекон, сыр чеддер, салат, вишневый соус, фирменный соус
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="about wow animate__fadeInLeft">
+    <div class="about__container container" id="aboutContainer">
+        <div class="about__title">
+            <h2>О BoomBurger</h2>
+            <img src="images/перчик%20декор_о%20нас.png" alt="перчик">
+        </div>
+        <div class="about__description">
+            <div class="about__description-text1">
+                Команда «BB» решила найти рецепт идеального бургера, который смог бы утолить любой голод и быть
+                настоящим
+                произведением искусства!
+            </div>
+            <div class="about__description-text2">
+                Мы отправились в гастрономическое путешествие по разным странам, катались по городам Америки и
+                Европы в поисках лучших секретов бургерной индустрии… но в результате поняли — идеальный бургер — это
+                бургер, приготовленный из качественных ингредиентов.
+            </div>
+
+        </div>
+        <div class="about__image">
+            <img src="images/бургеры%20снозу.png" alt="aboutburgers">
+        </div>
+    </div>
+</section>
+<section class="achievement wow animate__fadeInRight">
+    <div class="achievement__container container" id="achievementContainer">
+        <div class="achievement__title">
+            <h2>Чем мы отличаемся</h2>
+            <img src="images/перчик%20декор_о%20нас.png" alt="перчик">
+        </div>
+        <div class="achievement__items">
+            <div class="achievement__item plant">
+                <div class="achievement__item-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39"
+                         height="57" viewBox="0 0 39 57">
+                        <image id="plant" width="39" height="57"
+                               xlink:href="data:img/png;base64,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"/>
+                    </svg>
+                </div>
+                <div class="achievement__item-text">
+                    Используем только натуральные
+                    фермерские продукты
+                </div>
+            </div>
+            <div class="achievement__item cooking">
+                <div class="achievement__item-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="69"
+                         height="56" viewBox="0 0 69 56">
+                        <image id="cooking" width="69" height="56"
+                               xlink:href="data:img/png;base64,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"/>
+                    </svg>
+                </div>
+                <div class="achievement__item-text">
+                    Открытая кухня —
+                    посмотрите, как готовится
+                    ваш бургер
+                </div>
+            </div>
+            <div class="achievement__item dance">
+                <div class="achievement__item-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61"
+                         height="61" viewBox="0 0 61 61">
+                        <image id="dance" width="61" height="61"
+                               xlink:href="data:img/png;base64,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"/>
+                    </svg>
+                </div>
+                <div class="achievement__item-text">
+                    В нашем ресторане
+                    всегда атмосфера
+                    праздника
+                </div>
+            </div>
+            <div class="achievement__item dog">
+                <div class="achievement__item-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61"
+                         height="55" viewBox="0 0 61 55">
+                        <image id="dog_1_" data-name="dog (1)" width="61" height="55"
+                               xlink:href="data:img/png;base64,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"/>
+                    </svg>
+                </div>
+                <div class="achievement__item-text">
+                    Dog friendly — к нам
+                    можно с четвероногим
+                    другом
+                </div>
+            </div>
+            <div class="achievement__image">
+                <img src="images/burgerAchievement.png" alt="burger">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="main-menu wow animate__fadeInLeft">
+    <div class="menu__container container" id="menuContainer">
+        <div class="menu__title">
+            <img src="images/pepperrev.png" alt="pepper">
+            Меню
+        </div>
+        <div class="menu__carousel">
+            <div class="nav-block">
+                <div id="prev" class="prev">
+                    <img src="images/leftArrow.png" alt="">
+                </div>
+                <div id="next" class="next">
+                    <img src="images/rightArrow.png" alt="">
+                </div>
+            </div>
+            <ul id='carousel-custom-dots' class='owl-dots'>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36"
+                             height="36" viewBox="0 0 36 36">
+                            <image id="chicken" width="36" height="36"
+                                   xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAEMklEQVRYhcWYe2hWZRzHP5vTmRs6LxulWPN+DUVNMzDQhFygooQJ3s2MqDCsoEgwVLz8YaaBoGDYGkxSoSVeQwLdSstLF3GZWq9YjuVSi7a5WL7yi++Rx9M55z2v29wXDu857/Oc5/k+z/P93U5Gsmw2LYQHgTXAQCBDUzQA7wDlYVNmthQbYAIwHzgKnAPOA3/peUzYS1ktSKhCv7uAr53/vwLeAqbdb0KXgAXAce3ORaAXMEDtrwHvBxEaDDwFPBJzoiRQCXwYo+924BAwFdgMVAOLgBxgIzAWeM5PaBvwOHAKyI5BxgT6PPAe8CTwfYp3rgA3gRoJ3UMJ8IfmP+QS+hLoCYyMsWIXHwDfaZLqFH3N2rbq3qysEVgHHACWAb8BN4B6z+xN/TvU+HeE9dnu3AJq9Wy78ycwLoJMW5m7SeNH7bI31ipgiazQNmRjlkjYBC/ITKMIeagHNgG2miM66oaQvpOAf0TG8DLwr+6HAaVAD+B3YL0RmgzUSWhDtKJkyOBJkX0UWC1Bmja6SitBMBGfdv7f7Nz/ArwKXAYetkUZoZnASaAj8E2KnfFgutviEK8L6WfkpwDPhLQXSC79vR02Qh00cBXwhcSVSkMXJE6zzmM6wiBUygftD2k3Y/pUVnhnBSXS0HqxzAUekC78V1u1TRHx8Tr7XlpYjvQwA/gZ6C6dhMG01c5ty5Jrfxd4I+LFIMzSYm7pqBvVp40mOijRh+nR63vXaXhmf0HkFspZWcerElsUHgI6A3l6Jyk38EOK9zzDsaO85nprL5ZZfNkHfOKsNF+euCJ4zP9QpStdLAV6K97luu96hMwvPC295Oo5oVgTRahDCp/V6ArWQb4EXe33X/5o3+B0MHdeGDJRN+CE7vMiCF2TBB7z/W/He10bUBNFyMVZ4ImQtnplB8uBz2R5ftQoohcFtPWTI83zx8EoQsWKb0GoVbB8BVgRMUaRciI/JsrTDwI+ctuizn+PNDI9pP1FxT1b6WjfmJ65b9flxxwlbCOAz+MSMnwcMqCH3kpPy2VtCTnMLfLkQbtj2KldSshn3UGqqiNbVrIgBbGeiledFCrK5DDD0E7GY6QOp0PIMFfnXCi/0Rwwz94F6OMfK06SX6ycO6Gd+LWJhNYCo+SL/oe4Vcc8RXoLJc8Cu++RTKnSnZF+/+MhnULRju5tBWOzjOFpvPuSHKHtdF8VFIFIt3Jdq1QjUzr4Ftggf2Peu72SLtPGYmCvgvRKOckCmXsomlLb95cvKlLUz1TsylAGcFVV6g4dVSw0pbb/CXhd1US+zHi/MgTTx5sqEGOToRk/NjQqD7Jc+4zITryXgZrz60e2k45WqjJpVUKZChvok0uP1ibk1u1lsrqc1iA0VOZvtZlVLpYGW3yy3bJcx8z9vhIyk7cy2SpPK38sRpm527N9mHJ3LhrAbZag/7simBq5AAAAAElFTkSuQmCC"/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        цыпленок
+                    </div>
+                </li>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46"
+                             height="35" viewBox="0 0 46 35">
+                            <image id="cow" width="46" height="35"
+                                   xlink:href="data:img/png;base64,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"/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        говядина
+                    </div>
+                </li>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39"
+                             height="38" viewBox="0 0 39 38">
+                            <image id="duck" width="39" height="38"
+                                   xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAmCAYAAABH/4KQAAAEwElEQVRYhcWYaYhVZRjHf6OOk5pJ4ziNUVnaimBNZREttlNgDaVEmBVFRcGElG0fKts+ZLYv0EaLJX2oDy0kmS1YWVKT5WSUWZpkjVNmNU46OjnGI78LL4eZztGZa3843Hvuu9z/eZb/87ynYutrUymA6cAMYCiwGXgeuKLIwt5gQIG1TwKXA/cB7wOHALOAo4DDykkuz3LHAx8AxwELk98HA39L+LpykeuXMx5/vkhiDwIX+/sG4G7dXTb0RO4I4AtgPPAEUAlMA+5M5nwNdO1McidopSZgtQQnAJ3AOUBDMncI8M/OIDcZWAksMJ5OB84C1gD7O+dVyZZQAWwtN7m7gJeBZ7yvB+Y7HtZp7WFt/3KTCynZ0+9VwP3ASH/v0s2B24HvgReStZ0SLCu5S4HlwBQtV7JGha5sB24FmjPklpsoNcDacpArUiEqrQrjTZQSdgE2AucZFn2OPJ0LzAZ+zxALdAA/ANeXgxgFyU0C7uhhbJoWHdLHvLYhj9ww3doInN/N+JvAt8BH/we50Lv1wFLgJctWxNeUJMujETgQuLcPeZ0J/JhHboLkzgVGSCB0cA7wM9CmJm6wzs7uJalSgzEXGJVHbm/gD7+vVVKiYoS7zwAesDv5BHgPuND7iMU9CpAJnTzaJiLK5YdWqLHAu3n93O5aLouw2DyvFIOAh+1g4vrNCvMr8KfCvqvaWOsDhPivA14HHgEWu19NHrkq5aLeJ1qYM3+jjWkk0CnAMcAYoC7cpOiHZVuAj4Ev/VzWzV5deeSiRP0C3AwcAIzrZs61ZvUbiRZuMm7m5uz/XxiUR65N8/9kRqbob6yFzv1lPIYwrwCW6J6vvG+xDHaHGi1coWtLqM0j9x1wKPB5Ih0lzJLYYN0ZVj3ZjItmdaIHIoy1Dq/N3le6doNKsCAhF56oziM339b8nphsxxJWQJlZKjFsDJpNhBIq1cFRrg0r7abV2/VIEH0WuCVZt62pzSv8A4y7Bvu+RcmRcLKCXGtWlrCfLn7FCpKHJjP44GTekiLkStYb5ilrgdm3wrGIq4MytXUvSZeSp8PYXWdsblIzw3qn6voRSUzuA6wCji1Crk5XXuB9uLLZ7wPVwZUeI1MLhktPMmbHSGKLY5OMt00KfbpumWtHFzlUrzGO5phRKSK4h6tXIbQvAk951o1weNurhIi9G7RS1OorM4ekq1WFfSl44g9cE2a2S46sbUnG2i1psfGNwFT/sDUpfcOtBv2Mp0iytzL/MdHq0qhbC8VciiZl4hLguR7mxJOf6KuKOq29VjmaZwhkcZkWnwncVBrbXnLYmUz36eJA9LRatSM4UmuFCF8FPJ7uUaQTziKydrRx9lDSlcyww6jOWT9W938DfKbujc0SYwctl2KobdJUpWOIcbnKhGjTqgMV28NtJjptsWb65qpb9JZcFottjaolWqHurbc6NGqtT4tsVjRbi2KLFhnp2aLCTF7tu5bHtmezvibXoaurkrcBdX5mNTIXfUWuwRJXb/MYuna2Y63q3jizM3v+7RG9JRfWidob71RCy+J9SpwfIhEi9gJx5o3qEZ1xxFuI9aNFNt8RKUkRDxfEbvOEFh1LZOI7wEVe8bYgXBpjUR1OK7Qz8C/0XyxfqeJZSQAAAABJRU5ErkJggg=="/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        утка
+                    </div>
+                </li>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41"
+                             height="35" viewBox="0 0 41 35">
+                            <image id="crab" width="41" height="35"
+                                   xlink:href="data:img/png;base64,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"/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        краб
+                    </div>
+                </li>
+            </ul>
+            <ul id='carousel-custom-dots-1' class='owl-dots'>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36"
+                             height="36" viewBox="0 0 36 36">
+                            <image id="chicken" width="36" height="36"
+                                   xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAEMklEQVRYhcWYe2hWZRzHP5vTmRs6LxulWPN+DUVNMzDQhFygooQJ3s2MqDCsoEgwVLz8YaaBoGDYGkxSoSVeQwLdSstLF3GZWq9YjuVSi7a5WL7yi++Rx9M55z2v29wXDu857/Oc5/k+z/P93U5Gsmw2LYQHgTXAQCBDUzQA7wDlYVNmthQbYAIwHzgKnAPOA3/peUzYS1ktSKhCv7uAr53/vwLeAqbdb0KXgAXAce3ORaAXMEDtrwHvBxEaDDwFPBJzoiRQCXwYo+924BAwFdgMVAOLgBxgIzAWeM5PaBvwOHAKyI5BxgT6PPAe8CTwfYp3rgA3gRoJ3UMJ8IfmP+QS+hLoCYyMsWIXHwDfaZLqFH3N2rbq3qysEVgHHACWAb8BN4B6z+xN/TvU+HeE9dnu3AJq9Wy78ycwLoJMW5m7SeNH7bI31ipgiazQNmRjlkjYBC/ITKMIeagHNgG2miM66oaQvpOAf0TG8DLwr+6HAaVAD+B3YL0RmgzUSWhDtKJkyOBJkX0UWC1Bmja6SitBMBGfdv7f7Nz/ArwKXAYetkUZoZnASaAj8E2KnfFgutviEK8L6WfkpwDPhLQXSC79vR02Qh00cBXwhcSVSkMXJE6zzmM6wiBUygftD2k3Y/pUVnhnBSXS0HqxzAUekC78V1u1TRHx8Tr7XlpYjvQwA/gZ6C6dhMG01c5ty5Jrfxd4I+LFIMzSYm7pqBvVp40mOijRh+nR63vXaXhmf0HkFspZWcerElsUHgI6A3l6Jyk38EOK9zzDsaO85nprL5ZZfNkHfOKsNF+euCJ4zP9QpStdLAV6K97luu96hMwvPC295Oo5oVgTRahDCp/V6ArWQb4EXe33X/5o3+B0MHdeGDJRN+CE7vMiCF2TBB7z/W/He10bUBNFyMVZ4ImQtnplB8uBz2R5ftQoohcFtPWTI83zx8EoQsWKb0GoVbB8BVgRMUaRciI/JsrTDwI+ctuizn+PNDI9pP1FxT1b6WjfmJ65b9flxxwlbCOAz+MSMnwcMqCH3kpPy2VtCTnMLfLkQbtj2KldSshn3UGqqiNbVrIgBbGeiledFCrK5DDD0E7GY6QOp0PIMFfnXCi/0Rwwz94F6OMfK06SX6ycO6Gd+LWJhNYCo+SL/oe4Vcc8RXoLJc8Cu++RTKnSnZF+/+MhnULRju5tBWOzjOFpvPuSHKHtdF8VFIFIt3Jdq1QjUzr4Ftggf2Peu72SLtPGYmCvgvRKOckCmXsomlLb95cvKlLUz1TsylAGcFVV6g4dVSw0pbb/CXhd1US+zHi/MgTTx5sqEGOToRk/NjQqD7Jc+4zITryXgZrz60e2k45WqjJpVUKZChvok0uP1ibk1u1lsrqc1iA0VOZvtZlVLpYGW3yy3bJcx8z9vhIyk7cy2SpPK38sRpm527N9mHJ3LhrAbZag/7simBq5AAAAAElFTkSuQmCC"/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        цыпленок
+                    </div>
+                </li>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46"
+                             height="35" viewBox="0 0 46 35">
+                            <image id="cow" width="46" height="35"
+                                   xlink:href="data:img/png;base64,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"/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        говядина
+                    </div>
+                </li>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="39"
+                             height="38" viewBox="0 0 39 38">
+                            <image id="duck" width="39" height="38"
+                                   xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAmCAYAAABH/4KQAAAEwElEQVRYhcWYaYhVZRjHf6OOk5pJ4ziNUVnaimBNZREttlNgDaVEmBVFRcGElG0fKts+ZLYv0EaLJX2oDy0kmS1YWVKT5WSUWZpkjVNmNU46OjnGI78LL4eZztGZa3843Hvuu9z/eZb/87ynYutrUymA6cAMYCiwGXgeuKLIwt5gQIG1TwKXA/cB7wOHALOAo4DDykkuz3LHAx8AxwELk98HA39L+LpykeuXMx5/vkhiDwIX+/sG4G7dXTb0RO4I4AtgPPAEUAlMA+5M5nwNdO1McidopSZgtQQnAJ3AOUBDMncI8M/OIDcZWAksMJ5OB84C1gD7O+dVyZZQAWwtN7m7gJeBZ7yvB+Y7HtZp7WFt/3KTCynZ0+9VwP3ASH/v0s2B24HvgReStZ0SLCu5S4HlwBQtV7JGha5sB24FmjPklpsoNcDacpArUiEqrQrjTZQSdgE2AucZFn2OPJ0LzAZ+zxALdAA/ANeXgxgFyU0C7uhhbJoWHdLHvLYhj9ww3doInN/N+JvAt8BH/we50Lv1wFLgJctWxNeUJMujETgQuLcPeZ0J/JhHboLkzgVGSCB0cA7wM9CmJm6wzs7uJalSgzEXGJVHbm/gD7+vVVKiYoS7zwAesDv5BHgPuND7iMU9CpAJnTzaJiLK5YdWqLHAu3n93O5aLouw2DyvFIOAh+1g4vrNCvMr8KfCvqvaWOsDhPivA14HHgEWu19NHrkq5aLeJ1qYM3+jjWkk0CnAMcAYoC7cpOiHZVuAj4Ev/VzWzV5deeSiRP0C3AwcAIzrZs61ZvUbiRZuMm7m5uz/XxiUR65N8/9kRqbob6yFzv1lPIYwrwCW6J6vvG+xDHaHGi1coWtLqM0j9x1wKPB5Ih0lzJLYYN0ZVj3ZjItmdaIHIoy1Dq/N3le6doNKsCAhF56oziM339b8nphsxxJWQJlZKjFsDJpNhBIq1cFRrg0r7abV2/VIEH0WuCVZt62pzSv8A4y7Bvu+RcmRcLKCXGtWlrCfLn7FCpKHJjP44GTekiLkStYb5ilrgdm3wrGIq4MytXUvSZeSp8PYXWdsblIzw3qn6voRSUzuA6wCji1Crk5XXuB9uLLZ7wPVwZUeI1MLhktPMmbHSGKLY5OMt00KfbpumWtHFzlUrzGO5phRKSK4h6tXIbQvAk951o1weNurhIi9G7RS1OorM4ekq1WFfSl44g9cE2a2S46sbUnG2i1psfGNwFT/sDUpfcOtBv2Mp0iytzL/MdHq0qhbC8VciiZl4hLguR7mxJOf6KuKOq29VjmaZwhkcZkWnwncVBrbXnLYmUz36eJA9LRatSM4UmuFCF8FPJ7uUaQTziKydrRx9lDSlcyww6jOWT9W938DfKbujc0SYwctl2KobdJUpWOIcbnKhGjTqgMV28NtJjptsWb65qpb9JZcFottjaolWqHurbc6NGqtT4tsVjRbi2KLFhnp2aLCTF7tu5bHtmezvibXoaurkrcBdX5mNTIXfUWuwRJXb/MYuna2Y63q3jizM3v+7RG9JRfWidob71RCy+J9SpwfIhEi9gJx5o3qEZ1xxFuI9aNFNt8RKUkRDxfEbvOEFh1LZOI7wEVe8bYgXBpjUR1OK7Qz8C/0XyxfqeJZSQAAAABJRU5ErkJggg=="/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        утка
+                    </div>
+                </li>
+                <li class='owl-dot'>
+                    <div class="owl-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41"
+                             height="35" viewBox="0 0 41 35">
+                            <image id="crab" width="41" height="35"
+                                   xlink:href="data:img/png;base64,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"/>
+                        </svg>
+                    </div>
+                    <div class="owl-text">
+                        краб
+                    </div>
+                </li>
+            </ul>
+            <div class="owl-carousel owl-carousel-menu-0 owl-carousel-0">
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger1.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Грязный СанчеZ
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger2.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Красавчик Элвин
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger3.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Местный шериф
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger5.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дух Капитализма
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger6.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Чистый СанчеZ
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger7.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Красавчик Ленин
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger8.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Залетный шериф
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger9.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дух Демократии
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger10.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Марлин
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger11.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Красавчик Элвис
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger12.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Местный поп
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger13.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дух самурая
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger14.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            МартинеZ
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger15.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Твой
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger17.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дак
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger4.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Примитив
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel owl-carousel-menu-1 owl-carousel-1">
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger1.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Грязный СанчеZ
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger3.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Местный шериф
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger6.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Чистый СанчеZ
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger8.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Залетный шериф
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger10.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Марлин
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger12.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Местный поп
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger14.png" alt="burger1">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            МартинеZ
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, салат, вишневый
+                            соус, фирменный соус
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item1">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger17.png" alt="burger3">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дак
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, маринованный
+                            огурчик, сыр чеддер,
+                            помидор, салат
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel owl-carousel-menu-1 owl-carousel-2">
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger2.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Красавчик Элвин
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger5.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дух Капитализма
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger7.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Красавчик Ленин
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger9.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дух Демократии
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger11.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Красавчик Элвис
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger13.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Дух самурая
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger15.png" alt="burger2">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Твой
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+                <div class="menu__carousel-item item2">
+                    <div class="menu__carousel-item-image">
+                        <img src="images/burgerMenu/burger4.png" alt="burger4">
+                    </div>
+                    <div class="menu__carousel-item-text">
+                        <div class="text-title">
+                            Примитив
+                        </div>
+                        <div class="text-description">
+                            котлета из мраморной
+                            говядины, бекон, сыр
+                            чеддер, помидор, салат,
+                            фирменный соус барбекю
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="reviews wow animate__fadeInRight">
+    <div class="reviews__container container" id="reviewsContainer">
+        <div class="reviews__title">
+            <img src="images/pepperrev.png" alt="pepper">
+            <h2>Отзывы</h2>
+        </div>
+        <div class="reviews__carousel">
+            <div class="nav-block">
+                <div class="left">
+                    <img src="images/leftArrow.png" alt="">
+                </div>
+                <div class="right">
+                    <img src="images/rightArrow.png" alt="">
+                </div>
+            </div>
+            <div class="owl-carousel-reviews owl-carousel-reviews-0 owl-carousel">
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/roman.png" alt="roman">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Роман
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Самая быстрая курочка Запада (KING SIZE)
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Круто отметили день рождения
+                            Прекрасное обслуживание, заказали
+                            15 бургеров на всех, никто не остался равнодушным! В общем Я рекомендую этот ресторан - Наш
+                            ресторан.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/maria.png" alt="maria">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Мария
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Синий крабсбургер
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Очень нравится формат заведения, такого раньше не видела! Бургеры очень интересные по вкусу.
+                            Ингредиенты тоже супер: необычные, качественные, вкусные (корень лотоса, морепродукты).
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/base.png" alt="base">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Наталия
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Завтрак Капитана Америки
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            О кухне слышала много хороших отзывов, все правда. Большие порции, опять-таки оооочень
+                            вкусно. Рекомендую этот ресторан, всем именинникам – каждому уделяют особое внимание.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/stepan.png" alt="roman" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Степан
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Местный шериф
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Запомнилось это место отличным бургером. Очень вкусно готовят не придраться. Вкусные
+                            бургеры, вкусный чай, быстрое обслуживание, в общем хорошо посидели.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/elena.png" alt="maria" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Елена
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Марлин
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Очень хорошая бургерная. Отличная команда. И самое главное пускают с собакой.
+                            Нам очень понравилась атмосфера гостеприимства.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/semen.png" alt="base" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Семен
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Красавчик Элвин
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Это один из лучших бургерпабов России!
+                            Зачетная еда и интересные напитки.
+                            Стильные интерьеры во всех заведениях этой марки. Жаль что их немного и не масштабируются.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-reviews owl-carousel-reviews-1 owl-carousel">
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/roman.png" alt="roman">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Роман
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Самая быстрая курочка Запада (KING SIZE)
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Круто отметили день рождения
+                            Прекрасное обслуживание, заказали
+                            15 бургеров на всех, никто не остался равнодушным! В общем Я рекомендую этот ресторан - Наш
+                            ресторан.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/maria.png" alt="maria">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Мария
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Синий крабсбургер
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Очень нравится формат заведения, такого раньше не видела! Бургеры очень интересные по вкусу.
+                            Ингредиенты тоже супер: необычные, качественные, вкусные (корень лотоса, морепродукты).
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/base.png" alt="base">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Наталия
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Завтрак Капитана Америки
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            О кухне слышала много хороших отзывов, все правда. Большие порции, опять-таки оооочень
+                            вкусно. Рекомендую этот ресторан, всем именинникам – каждому уделяют особое внимание.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/stepan.png" alt="roman" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Степан
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Местный шериф
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Запомнилось это место отличным бургером. Очень вкусно готовят не придраться. Вкусные
+                            бургеры, вкусный чай, быстрое обслуживание, в общем хорошо посидели.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/elena.png" alt="maria" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Елена
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Марлин
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Очень хорошая бургерная. Отличная команда. И самое главное пускают с собакой.
+                            Нам очень понравилась атмосфера гостеприимства.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/semen.png" alt="base" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Семен
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Красавчик Элвин
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Это один из лучших бургерпабов России!
+                            Зачетная еда и интересные напитки.
+                            Стильные интерьеры во всех заведениях этой марки. Жаль что их немного и не масштабируются.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel-reviews owl-carousel-reviews-2 owl-carousel">
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/roman.png" alt="roman">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Роман
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Самая быстрая курочка Запада (KING SIZE)
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Круто отметили день рождения
+                            Прекрасное обслуживание, заказали
+                            15 бургеров на всех, никто не остался равнодушным! В общем Я рекомендую этот ресторан - Наш
+                            ресторан.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/base.png" alt="base">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Наталия
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Завтрак Капитана Америки
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            О кухне слышала много хороших отзывов, все правда. Большие порции, опять-таки оооочень
+                            вкусно. Рекомендую этот ресторан, всем именинникам – каждому уделяют особое внимание.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/elena.png" alt="maria" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Елена
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Марлин
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Очень хорошая бургерная. Отличная команда. И самое главное пускают с собакой.
+                            Нам очень понравилась атмосфера гостеприимства.
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="owl-carousel-reviews owl-carousel-reviews-2 owl-carousel">
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/maria.png" alt="maria">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Мария
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Синий крабсбургер
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Очень нравится формат заведения, такого раньше не видела! Бургеры очень интересные по вкусу.
+                            Ингредиенты тоже супер: необычные, качественные, вкусные (корень лотоса, морепродукты).
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/stepan.png" alt="roman" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Степан
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Местный шериф
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Запомнилось это место отличным бургером. Очень вкусно готовят не придраться. Вкусные
+                            бургеры, вкусный чай, быстрое обслуживание, в общем хорошо посидели.
+                        </div>
+
+                    </div>
+                </div>
+                <div class="reviews__carousel-item">
+                    <div class="reviews__carousel-item-icons">
+                        <img src="images/facebook.png" alt="facebook">
+                        <img src="images/instagram.png" alt="instagram">
+                    </div>
+                    <div class="reviews__carousel-item-image">
+                        <img src="images/semen.png" alt="base" style="border-radius: 50%">
+                    </div>
+                    <div class="reviews__carousel-item-text">
+                        <div class="person-name">
+                            Семен
+                        </div>
+                        <div class="persons-like">
+                            Любимый бургер:
+                            <div class="persons-like-burg">
+                                Красавчик Элвин
+                            </div>
+                        </div>
+                        <div class="person-rev">
+                            Это один из лучших бургерпабов России!
+                            Зачетная еда и интересные напитки.
+                            Стильные интерьеры во всех заведениях этой марки. Жаль что их немного и не масштабируются.
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="promo wow animate__pulse">
+    <div class="promo__container container" id="promoContainer">
+        <div class="promo__title">
+            <h2>Наши акции</h2>
+        </div>
+        <div class="promo__items">
+            <div class="promo__item1 promo__item bg1">
+                <img src="images/promo/веганское%20меню.png" alt="веганское меню">
+            </div>
+            <div class="promo__item2 promo__item bg1">
+                <img src="images/promo/Пробник-бургеры.png" alt="Пробник-бургеры">
+            </div>
+            <div class="promo__item3 promo__item bg1">
+                <img src="images/promo/акции%20постер%20большая%20компания.png" alt="большая компания">
+            </div>
+            <div class="promo__item4 promo__item bg1">
+                <img src="images/promo/Подводный%20мир.png" alt="Подводный мир">
+            </div>
+            <div class="promo__item1 promo__item bg2">
+                <img src="images/promo/баннер%20веганское%20меню1.png" alt="веганское меню">
+            </div>
+            <div class="promo__item2 promo__item bg2">
+                <img src="images/promo/бургеры1.png" alt="Пробник-бургеры">
+            </div>
+            <div class="promo__item3 promo__item bg2">
+                <img src="images/promo/Болшая%20компания1.png" alt="большая компания">
+            </div>
+            <div class="promo__item4 promo__item bg2">
+                <img src="images/promo/морепродукты1.png" alt="Подводный мир">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="order wow animate__fadeInLeft">
+    <div class="order__container container" id="orderContainer">
+        <div class="order__title">
+            <h2>Забронировать стол</h2>
+        </div>
+        <div class="order__info">
+            <div class="order__info-image">
+                <img src="images/orderburger2.png" alt="burger">
+            </div>
+            <div class="order__form">
+                <div class="info-text-description">
+                    Ждем тебя в BoomBurger прямо сейчас. Оформи бронь в течение 30 минут
+                    и получи напиток в подарок!
+                </div>
+                <div class="timer">
+                    <div id="timer" class="ft ft-light ft-warn"></div>
+                    <div class="timer-text">
+                        <span>минуты</span>
+                        <span>секунды</span>
+                    </div>
+                </div>
+                <form action="" class="form">
+                    <input type="text" id="name" class="input-name input lab_input" placeholder="Ваше имя">
+                    <div class="error-input">Введите ваше имя</div>
+                    <input type="text" id="phone" class="input-phone input lab_input" data-phone-pattern
+                           placeholder="+7(___) ___-__-__">
+                    <div class="error-input">Введите ваш телефон</div>
+                    <button type="button" id="submit" class="btn form-action">Забронировать стол</button>
+                    <div class="order__form-politics">
+                        Нажимая на кнопку вы подтверждаете ваше согласие с <a href="#">политикой конфиденциальности</a>
+                        и обработкой персональных данных
+                    </div>
+                </form>
+            </div>
+            <div class="pepper">
+                <img src="images/pngwing.png" alt="pepper">
+            </div>
+        </div>
+    </div>
+    </div>
+
+</section>
+<footer class="footer">
+    <div class="footer__container container">
+        <div class="footer__logo">
+            <a href="#">
+                <img src="images/logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="footer__address">
+            <div class="header__address-item"> г. Москва, м. Лубянка
+                Никольская ул., 24 <br>
+                +7 (495) 221-24-34, +7 (495) 287-24-96
+            </div>
+        </div>
+        <div class="footer__icons">
+            <img src="images/facebookfooter.png" alt="facebook">
+            <img src="images/instagramfooter.png" alt="instagram">
+            <img src="images/youtube.png" alt="youtube">
+        </div>
+    </div>
+</footer>
+
+<div class="order__success">
+    <div class="order__bg">
+        <div class="order__div">
+            <div class="order__success-close">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 492 492" width="13" height="13" style="enable-background:new 0 0 492 492;"
+                     xml:space="preserve">
+                    <g>
+                        <g>
+                            <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+                                c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+                                c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+                                L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+                                c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+                                c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+                                c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="order__success-title">
+                Спасибо, что выбрали наш ресторан!
+            </div>
+            <div class="order__success-description">
+                В течение 15 минут наши менеджеры свяжутся с вами для подтверждения брони
+            </div>
+            <div class="order__success-image">
+                <img src="images/modal.png" alt="modal">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/fancy-timer/build/index.js"></script>
+<script src="lib/owl.carousel.min.js"></script>
+<script src="lib/wow.min.js"></script>
+<!--<script src="lib/less/dist/less.js"></script>-->
+<script src="index.js"></script>
+</body>
+</html>
+
